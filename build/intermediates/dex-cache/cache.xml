@@ -1,0 +1,608 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/25.1.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c9649557905bf7a80fca9e0d54cbcb7662627860">
+        <dex dex="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-recyclerview-v7-25.1.1_ab1950de99e42c8c42ce8b5b726df83611243f13/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="433f4d6aa5f21f19552afe0e6c5eff0fedba73ad">
+        <dex dex="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-analytics-10.0.1_e2f83b857e7f32b1d787d153f76dcaff0cbbeb9b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="771267c5b0c7a5b348d3205dcfa1f871af7e0177">
+        <dex dex="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-cast-10.0.1_58a36289176f60673f3f0f6e5d0e6afb5091cdc4/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-identity/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="a48dc0b148059764d32500be558702d5ff932058">
+        <dex dex="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-identity-10.0.1_ce6cf8b2651b1abffcd2380c5b163b8dbee606b8/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/exploded-aar/com.google.firebase/firebase-appindexing/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ae80d328a8548b4610ead6c624bab8c6a6984f5b">
+        <dex dex="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-appindexing-10.0.1_1923be3169c5c1af892ef437ed97fbbc6677230b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/clenio/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/25.1.1/support-annotations-25.1.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b59b6ee8d6ecc03e672d253800430343493a6ed8">
+        <dex dex="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-25.1.1_91760bc4e52a43230438ab2e8a09e3f6edf6a280/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="df1cb17511aabbb63264a0024949d1e42502a512">
+        <dex dex="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-cast-framework-10.0.1_aa11d0602acb5138d43d1eccd30b38b444b6dcc2/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="25438f55fc6d906a0e72f30b21487541430ede43">
+        <dex dex="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-base-10.0.1_0e27c7ecac3f22186b17b7803f67855fae05516f/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/exploded-aar/com.google.firebase/firebase-database/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8f128aeeb7e31271b28a7adb9dac1f3a6ed9f5e7">
+        <dex dex="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-database-10.0.1_fb05c6ebef0838521b2a35da73ab848482c115ab/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.1.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-25.1.1_0ef1998913f91f8a2b4543d4596a521cf65142c2/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-panorama/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="92c871a22463a247e8a77a9f3fd231c278788c4a">
+        <dex dex="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-panorama-10.0.1_a8c7ee3faa9be9ebd62a9b619e34419849e79214/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/exploded-aar/com.android.support/palette-v7/24.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="734e80dffea7bd76c18ae256822a124c30d85850">
+        <dex dex="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-palette-v7-24.0.0_4707d96e299a15b5d29897dd8e800c6ed4a2a500/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/exploded-aar/com.google.firebase/firebase-storage/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="dd39827d2067497e60e21da48a7926000b6d4b0c">
+        <dex dex="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-storage-10.0.1_97d511ba2cff84185c62518ad89fbd229807baf8/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.1.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0d191c1a09e4892d059e5ce749e4ad4e08129e35">
+        <dex dex="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-25.1.1_9e0a3fd3aa8b02cb9c6d04d83e2e4dca4f6c96b8/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/exploded-aar/com.google.firebase/firebase-database-connection/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8010ae6ed32828a145b25ec97bc07b7a83c6318f">
+        <dex dex="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-database-connection-10.0.1_674115943036a07bfb19fcf75df1c855208b589a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-clearcut/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="1d193729baf37df3d902a423291423a0df7e3779">
+        <dex dex="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-clearcut-10.0.1_b6bf2975dd07beeee96d81c9eafc587b477b7e2e/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.1.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="7bde4c34162092e0a77e7f12dc85ed77c484cf5c">
+        <dex dex="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-media-compat-25.1.1_1ecddd50116aced26fdcabc9ecd549c05323406a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-nearby/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c6e1f361e9d61aece9dac39b77fcc98a337a144d">
+        <dex dex="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-nearby-10.0.1_da26e7dbadf9d644b72754d891dd26753a9fc345/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/exploded-aar/com.google.firebase/firebase-messaging/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4b17463c814bdc562fb0392fa3494063623a0904">
+        <dex dex="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-messaging-10.0.1_3ecb6764dad65c6dfa0f42a784930dc05820ef05/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tagmanager-api/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b1df8fa3d372a27e4e969ce00b00689ee1eed031">
+        <dex dex="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-tagmanager-api-10.0.1_7a7c001af6f4913c6f3e6c591685e45441fa335a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics-impl/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e871881b36b32e6bfd271a830c6eeb54ff0fc185">
+        <dex dex="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-analytics-impl-10.0.1_267ca3a71878215c4d1cc1b6b282b98b19f29913/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-plus/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c14f0c89f28cf782e42581ab0aba5f63af39b3d2">
+        <dex dex="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-plus-10.0.1_9f62c8fa735ec965bb71d296c254650fe80d14c3/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-fitness/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="7a64bf6dc775198eed9db9468a133adf7dfe6562">
+        <dex dex="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-fitness-10.0.1_e371696e1ae76470882a525bba2f1b15409ac152/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ecb496cc08dd52551fc5ec6db3bc0632e95a89bb">
+        <dex dex="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-25.1.1_38de46c2bb1898ce6b37b50bbe563e24c0e7bb78/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads-lite/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b955cb3a1ad6f1b6ff728ce1e0cd592c1717b440">
+        <dex dex="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-ads-lite-10.0.1_7bb5be5dd405f6db78e5acfc6c35f67d7419371b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/exploded-aar/com.google.firebase/firebase-auth/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="9cca2818594cc5348806d6662133491e7ea0fa8d">
+        <dex dex="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-auth-10.0.1_7af41f8b7c6fdff99d15140daf99dd1ea3f9f9de/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-instantapps/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="45305e6af414dab5aba6c3225081c2f15c3bdd1e">
+        <dex dex="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-instantapps-10.0.1_f1a1134009851ebef76ee5c648785691da453344/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.1.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="3e04ac8ca644ea7baddf6fdcf72e15c79e9df94a">
+        <dex dex="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-ui-25.1.1_5519276bd3f2dd3ab71e09eeb82c97cab2b2ec6b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="29fd89fba77b8f9dd73e6793ff271f6bcc325283">
+        <dex dex="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_932c11054a9491d94172f3f50a77c7efa05f3036/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-places/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="f3e51e9c5233b8897f61e08a6a27bc36283c2724">
+        <dex dex="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-places-10.0.1_88dc6e53d079862e2cb27d05eb705c80adb3b2ef/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth-base/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e96c6974cf924e7ee3b230e6847d5731423388c9">
+        <dex dex="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-auth-base-10.0.1_0ba809233016643526885b669ff93b244dc96227/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gass/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="57c2eceb8548de84509d1ebc293fedec53231f6c">
+        <dex dex="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-gass-10.0.1_fe4760cc9370efb822f49489ec8d3b84ddaaf345/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8308ed003522a2ee8958311afcc4cfd0470377cd">
+        <dex dex="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-gcm-10.0.1_0d0672883f126c0dd1d50b25b7b81ed19350ddb2/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-safetynet/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="f6cf557be4dbd0282ea2388633e5378634423226">
+        <dex dex="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-safetynet-10.0.1_a398dcd9668087e544682264d0c5d449fdc31a0b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/exploded-aar/com.google.firebase/firebase-storage-common/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="09cf6aa1390f95157e8295d02be7868f568825fc">
+        <dex dex="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-storage-common-10.0.1_1c002c7dd1ed46d09cb597343c1098f1fdd0aa2e/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-vision/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ba6aa5e69ef31dee57208125323cee958fc67565">
+        <dex dex="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-vision-10.0.1_6a1dd01431c3c6e7a1bcb7554165c4edf305fb84/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b327fbe2fad414bc38cf0ce8f7efe1a38f572837">
+        <dex dex="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-mediarouter-v7-24.0.0_b94876e367cf220fcbb93e3fc082f0ffdffd3190/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d0460bf07cc3657e0be518ca01c174493951c6b8">
+        <dex dex="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-ads-10.0.1_86ccf03193e2b0f6b27ec0b2534911adcf8643d3/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/exploded-aar/com.google.firebase/firebase-crash/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="de29a39f9260f88151b1ef453140e71c76b6c415">
+        <dex dex="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-crash-10.0.1_297f021479e791a0698ba695af5fe4161a456f6f/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-iid/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6bb5d347ebc0c6ef3c83a905222a688da5d2f7b4">
+        <dex dex="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-iid-10.0.1_ddcd213b941f51c2381d45902388f81f7f8b6e47/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/exploded-aar/com.google.firebase/firebase-common/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="eb0d830e3eabb9deb9ec44869cf7ac7ea1ad794c">
+        <dex dex="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-common-10.0.1_d69801debf133b13d87ab4bbac58ba29755d2a08/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e2185aff89caeb337b1ffc36d5e525d8318e7cfe">
+        <dex dex="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-auth-10.0.1_4884f4a9123ab0fdbdfb2b528ac5211b45983830/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.1.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0fb891e8f0cfba0513043a7bb357513d229ca2cd">
+        <dex dex="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-utils-25.1.1_8e38ab44a3331e2d9014f043224b7dd40c823369/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics-impl/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6116e0e7069de7fc259aac8e08b84f32c2038231">
+        <dex dex="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-analytics-impl-10.0.1_195efd58e7aed2a0a77c61f7d238eb4569bed9e3/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/exploded-aar/com.android.support/transition/25.1.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="15b049fedbd8e3926bf99d9e45dfc9b2a1043bb9">
+        <dex dex="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-transition-25.1.1_bc51c6f1bc94180d78a411e185cbc9c23041679a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="2d5d113b0352ab60946fc44c518cf68fd26cbb79">
+        <dex dex="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-wallet-10.0.1_f17d5a3c824a285a27e83aa5a638648f77f745cb/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/jars/libs/internal_impl-24.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b6763651ec29b4c95e7bbe63fc393ffcc8c4c2c5">
+        <dex dex="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.0.0_d3f4740b7a55d5a4b70356ea91b76735b14e81af/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/exploded-aar/com.google.firebase/firebase-config/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ffc15e965a9e8c28f24455eedd4cac215c45d1fc">
+        <dex dex="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-config-10.0.1_0cd3fd98459d8bd3651cd5ce405871a2d249aa4f/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tagmanager-v4-impl/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="f23ad0f8e58713ff4b55f61c0bbde3830378347c">
+        <dex dex="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-tagmanager-v4-impl-10.0.1_7542bd9fd3bf7255be08cfce2da6677e1cf23a95/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-games/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="1e11c68fec92a17c84dd8d1dd80e74c4e67b12e2">
+        <dex dex="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-games-10.0.1_6691ca2e8e96927b6e9715fb300c6e4f7a97a397/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.1.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="02741d05d4b697fba5e279e9881aaa1da0ca7c7f">
+        <dex dex="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-compat-25.1.1_b14ef2e3037c674cca807827311e1af2896672f9/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6addaba208e21c6da776d0ca75b6b23a6ccd5499">
+        <dex dex="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-tasks-10.0.1_d13a776ce5f833ce9a887d4f74c92953a60eb3e1/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/exploded-aar/com.android.support/design/25.1.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="cd7951e04cfb9a8bf008d544a478d9a8d8192d38">
+        <dex dex="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-design-25.1.1_e2c7fe30a19b17932fa0f6cee0e1cc35e00131a2/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4c829ff0ccfecb28a999ee46d9e75948dfc777a4">
+        <dex dex="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-analytics-10.0.1_0677f549b36f2fbdfeb0f3bfc9c599567485b519/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.1.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e2719c102dca3a7a5b02ce07f769362da6ddb4ab">
+        <dex dex="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-fragment-25.1.1_9e961d4ed643eca702fdbec7784e0150340e24ff/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tagmanager/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="971509bbe30bb7b971fc1c49d7b23d0d818830ac">
+        <dex dex="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-tagmanager-10.0.1_596aa34f0a9ac33a1c1c9156b26f3971bf89f0c4/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-drive/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="028f8255cb977b29cdffbfcf05caa0459686120c">
+        <dex dex="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-drive-10.0.1_46c615d271f728ac1a8ca9ebbe5ec8d6f56913f8/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="44a694d4095be84c2888764b1f7256b385c030ad">
+        <dex dex="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-location-10.0.1_aca01cc4939eeb147009afd26cd7018de1447c21/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-awareness/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4385ccc0a88b33d182a836eadb47be55c8eb1107">
+        <dex dex="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-awareness-10.0.1_21f6d160c0ea51d348c4f747236269354b232f53/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="24faaaa777352e8e2b47cbb65328754cc76a84d4">
+        <dex dex="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_4cbadefa6a6e95c21a8c3ca101b580af4c91f8ca/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.1.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c03bf57f358aa10d253f21989e93bcf6014b3b17">
+        <dex dex="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-25.1.1_cddad6865dfd05391b69bc587256c455f9657306/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="27777b3cad3c20b1acab19f6e37fe3e03371bf6e">
+        <dex dex="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-maps-10.0.1_405ba5ec8638f3b39d6950afe1c0dfa5dceb82dc/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/exploded-aar/com.github.rtoshiro.mflibrary/mflibrary/1.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="29dbf7c84ce75d9b0837fe3b544de5ff41ced560">
+        <dex dex="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.github.rtoshiro.mflibrary-mflibrary-1.0.0_ab9046f3aef30b300602a1cc41dee66bb7a63fb8/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="486371f97baad8e607f332f20fee1d3dd00a731a">
+        <dex dex="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-iid-10.0.1_db11eb29fb1c03f63db833e1b92f1e6038391ddd/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wearable/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="408a599ac77cd17fe8e8919326bec617b3d005bd">
+        <dex dex="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-wearable-10.0.1_7eb8e445655fbd796b43e4e3fbd9c0cac77b1c9f/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="756f6297eef79784f5e356dcd4f39865028b2bd0">
+        <dex dex="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-basement-10.0.1_c1b9395707306cbf849f1f61961e5f9668174d63/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appinvite/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="39907d5c8f5902fffef30160ca7447c93b82405c">
+        <dex dex="/home/clenio/Documentos/projetos android/Whatsclone/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-appinvite-10.0.1_1f595d26f9e7f34a9c6ff341305c63d0386fd1b8/classes.dex" />
+    </item>
+
+</items>
