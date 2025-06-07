@@ -31,7 +31,14 @@
     "install:all": "npm install && npm run install:client && npm run install:server",
     "install:client": "cd client && npm install",
     "install:server": "cd server && npm install",
-    "setup": "npm run install:all && cp .env.example .env"
+    "setup": "npm run install:all && cp .env.example .env",
+    "mongo:start": "./mongodb-manager.sh start",
+    "mongo:stop": "./mongodb-manager.sh stop",
+    "mongo:status": "./mongodb-manager.sh status",
+    "mongo:test": "./mongodb-manager.sh test",
+    "start:full": "./start-whatsclone.sh",
+    "fix:registration": "./fix-registration.sh",
+    "fix:tailwind": "./fix-tailwind.sh"
   },
   "devDependencies": {
     "concurrently": "^8.2.2"
