@@ -1,0 +1,54 @@
+{
+  "name": "whatsclone-server",
+  "version": "1.0.0",
+  "description": "Backend do WhatsClone - API REST e Socket.io",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "build": "echo 'No build step required for Node.js'",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "socket.io": "^4.7.4",
+    "mongoose": "^8.0.3",
+    "jsonwebtoken": "^9.0.2",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "helmet": "^7.1.0",
+    "express-rate-limit": "^7.1.5",
+    "express-validator": "^7.0.1",
+    "twilio": "^4.19.0",
+    "dotenv": "^16.3.1",
+    "morgan": "^1.10.0",
+    "compression": "^1.7.4",
+    "multer": "^1.4.5-lts.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2",
+    "jest": "^29.7.0",
+    "supertest": "^6.3.3",
+    "eslint": "^8.55.0",
+    "eslint-config-node": "^4.1.0",
+    "eslint-plugin-node": "^11.1.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "keywords": [
+    "whatsapp",
+    "clone",
+    "backend",
+    "api",
+    "socket.io",
+    "express",
+    "mongodb"
+  ],
+  "author": "Clenio Afonso de Oliveira Moura <clenioti@gmail.com>",
+  "license": "MIT"
+}

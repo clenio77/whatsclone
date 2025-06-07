@@ -1,0 +1,63 @@
+{
+  "name": "whatsclone-web",
+  "version": "1.0.0",
+  "description": "Um clone moderno do WhatsApp desenvolvido com tecnologias web atuais",
+  "private": true,
+  "workspaces": [
+    "client",
+    "server",
+    "shared"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:client": "cd client && npm run dev",
+    "dev:server": "cd server && npm run dev",
+    "build": "npm run build:client && npm run build:server",
+    "build:client": "cd client && npm run build",
+    "build:server": "cd server && npm run build",
+    "start": "cd server && npm start",
+    "test": "npm run test:client && npm run test:server",
+    "test:client": "cd client && npm test",
+    "test:server": "cd server && npm test",
+    "lint": "npm run lint:client && npm run lint:server",
+    "lint:client": "cd client && npm run lint",
+    "lint:server": "cd server && npm run lint",
+    "lint:fix": "npm run lint:fix:client && npm run lint:fix:server",
+    "lint:fix:client": "cd client && npm run lint:fix",
+    "lint:fix:server": "cd server && npm run lint:fix",
+    "clean": "npm run clean:client && npm run clean:server",
+    "clean:client": "cd client && rm -rf dist node_modules",
+    "clean:server": "cd server && rm -rf dist node_modules",
+    "install:all": "npm install && npm run install:client && npm run install:server",
+    "install:client": "cd client && npm install",
+    "install:server": "cd server && npm install",
+    "setup": "npm run install:all && cp .env.example .env"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/clenio77/whatsclone"
+  },
+  "keywords": [
+    "whatsapp",
+    "clone",
+    "chat",
+    "react",
+    "nodejs",
+    "socket.io",
+    "mongodb",
+    "typescript"
+  ],
+  "author": "Clenio Afonso de Oliveira Moura <clenioti@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/clenio77/whatsclone/issues"
+  },
+  "homepage": "https://github.com/clenio77/whatsclone#readme"
+}
