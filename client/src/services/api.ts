@@ -142,4 +142,42 @@ export const messageApi = {
     api.put(`/messages/${messageId}/delivered`).then(res => res.data),
 }
 
+// API de Administração
+export const adminApi = {
+  // Dashboard
+  getDashboard: (): Promise<ApiResponse> =>
+    api.get('/admin/dashboard').then(res => res.data),
+
+  // Usuários
+  getUsers: (params?: {
+    page?: number
+    limit?: number
+    search?: string
+    status?: string
+    role?: string
+    sortBy?: string
+    sortOrder?: string
+  }): Promise<ApiResponse> =>
+    api.get('/admin/users', { params }).then(res => res.data),
+
+  getUserDetails: (userId: string): Promise<ApiResponse> =>
+    api.get(`/admin/users/${userId}`).then(res => res.data),
+
+  updateUser: (userId: string, data: {
+    name?: string
+    email?: string
+    role?: string
+    isVerified?: boolean
+    isLocked?: boolean
+    lockReason?: string
+  }): Promise<ApiResponse> =>
+    api.put(`/admin/users/${userId}`, data).then(res => res.data),
+
+  deleteUser: (userId: string): Promise<ApiResponse> =>
+    api.delete(`/admin/users/${userId}`).then(res => res.data),
+
+  revokeUserSessions: (userId: string): Promise<ApiResponse> =>
+    api.post(`/admin/users/${userId}/revoke-sessions`).then(res => res.data)
+}
+
 export default api

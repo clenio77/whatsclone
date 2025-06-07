@@ -5,6 +5,9 @@ import { useThemeStore } from './services/themeStore'
 import LoginPage from './pages/Login'
 import ChatPage from './pages/Chat'
 import ProfilePage from './pages/Profile'
+import AdminLayout from './components/admin/AdminLayout'
+import AdminDashboard from './pages/Admin/Dashboard'
+import AdminUsers from './pages/Admin/Users'
 import LoadingSpinner from './components/common/LoadingSpinner'
 
 function App() {
@@ -51,11 +54,20 @@ function App() {
           path="/chat/:chatId" 
           element={user ? <ChatPage /> : <Navigate to="/login" replace />} 
         />
-        <Route 
-          path="/profile" 
-          element={user ? <ProfilePage /> : <Navigate to="/login" replace />} 
+        <Route
+          path="/profile"
+          element={user ? <ProfilePage /> : <Navigate to="/login" replace />}
         />
-        
+
+        {/* Rotas de administração */}
+        <Route
+          path="/admin"
+          element={user?.role === 'admin' ? <AdminLayout /> : <Navigate to="/chat" replace />}
+        >
+          <Route index element={<AdminDashboard />} />
+          <Route path="users" element={<AdminUsers />} />
+        </Route>
+
         {/* Rota padrão */}
         <Route 
           path="/" 

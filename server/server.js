@@ -22,6 +22,7 @@ const chatRoutes = require('./routes/chats');
 const messageRoutes = require('./routes/messages');
 const aiRoutes = require('./routes/ai');
 const securityRoutes = require('./routes/security');
+const adminRoutes = require('./routes/admin');
 
 // Importar middlewares
 const errorHandler = require('./middleware/errorHandler');
@@ -114,6 +115,7 @@ app.use('/api/chats', chatRoutes);
 app.use('/api/messages', messageRateLimit, messageRoutes);
 app.use('/api/ai', aiRateLimit, aiRoutes);
 app.use('/api/security', securityRoutes);
+app.use('/api/admin', adminRoutes);
 
 // Rota de health check
 app.get('/api/health', (req, res) => {

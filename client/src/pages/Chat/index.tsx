@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react'
-import { useParams } from 'react-router-dom'
-import { MessageCircle, Settings, Search, MoreVertical, Send, Plus, UserPlus, Bot } from 'lucide-react'
+import { useParams, Link } from 'react-router-dom'
+import { MessageCircle, Settings, Search, MoreVertical, Send, Plus, UserPlus, Bot, Shield } from 'lucide-react'
 import { useAuthStore } from '@/services/authStore'
 import { useSocket } from '@/services/socketService'
 import { Chat, Message, User } from '@shared/types'
@@ -298,6 +298,17 @@ const ChatPage = () => {
               >
                 <Bot className="w-4 h-4" />
               </Button>
+              {user?.role === 'admin' && (
+                <Link to="/admin">
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    title="Painel Administrativo"
+                  >
+                    <Shield className="w-4 h-4" />
+                  </Button>
+                </Link>
+              )}
               <Button variant="ghost" size="sm" onClick={handleLogout}>
                 <Settings className="w-4 h-4" />
               </Button>
