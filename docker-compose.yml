@@ -1,0 +1,126 @@
+version: '3.8'
+
+services:
+  # MongoDB Database
+  mongodb:
+    image: mongo:7.0
+    container_name: whatsclone-mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password123
+      MONGO_INITDB_DATABASE: whatsclone
+    volumes:
+      - mongodb_data:/data/db
+      - ./docker/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+    networks:
+      - whatsclone-network
+
+  # Redis for JWT Blacklist (Optional)
+  redis:
+    image: redis:7.2-alpine
+    container_name: whatsclone-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    command: redis-server --appendonly yes
+    volumes:
+      - redis_data:/data
+    networks:
+      - whatsclone-network
+
+  # Backend API
+  backend:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    container_name: whatsclone-backend
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    environment:
+      NODE_ENV: development
+      PORT: 5000
+      MONGODB_URI: mongodb://admin:password123@mongodb:27017/whatsclone?authSource=admin
+      REDIS_URL: redis://redis:6379
+      JWT_SECRET: whatsclone-super-secret-jwt-key-for-development-only
+      JWT_REFRESH_SECRET: whatsclone-refresh-secret-key-for-development
+      JWT_EXPIRE: 15m
+      JWT_REFRESH_EXPIRE: 7d
+      CORS_ORIGIN: http://localhost:3000
+      # Twilio (opcional - será simulado se não configurado)
+      # TWILIO_ACCOUNT_SID: your-twilio-sid
+      # TWILIO_AUTH_TOKEN: your-twilio-token
+      # TWILIO_PHONE_NUMBER: +1234567890
+      # IA Providers (opcional)
+      # GROQ_API_KEY: your-groq-api-key
+      # OPENAI_API_KEY: your-openai-api-key
+      # ANTHROPIC_API_KEY: your-anthropic-api-key
+    depends_on:
+      - mongodb
+      - redis
+    volumes:
+      - ./server:/app
+      - /app/node_modules
+      - ./server/logs:/app/logs
+      - ./server/uploads:/app/uploads
+    networks:
+      - whatsclone-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Frontend React App
+  frontend:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    container_name: whatsclone-frontend
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      VITE_API_URL: http://localhost:5000/api
+      VITE_SOCKET_URL: http://localhost:5000
+      # IA Configuration (opcional)
+      # VITE_AI_PROVIDER: groq
+      # VITE_AI_API_KEY: your-groq-api-key
+      # VITE_OLLAMA_URL: http://localhost:11434
+    depends_on:
+      - backend
+    volumes:
+      - ./client:/app
+      - /app/node_modules
+    networks:
+      - whatsclone-network
+
+  # Nginx Reverse Proxy (Opcional - para produção)
+  nginx:
+    image: nginx:alpine
+    container_name: whatsclone-nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    volumes:
+      - ./docker/nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - frontend
+      - backend
+    networks:
+      - whatsclone-network
+    profiles:
+      - production
+
+volumes:
+  mongodb_data:
+    driver: local
+  redis_data:
+    driver: local
+
+networks:
+  whatsclone-network:
+    driver: bridge

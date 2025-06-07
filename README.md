@@ -140,10 +140,24 @@ whatsclone-web/
 
 ## 🛠️ Instalação e Execução
 
-### Pré-requisitos
+### 🐳 Opção 1: Docker (Recomendado - Mais Fácil)
+```bash
+# Setup rápido com Docker
+git clone https://github.com/clenio77/whatsclone
+cd whatsclone
+./docker-dev.sh start        # Linux/Mac
+# ou docker-dev.bat start     # Windows
+
+# Criar usuário admin
+./docker-dev.sh admin
+```
+**Vantagens**: Zero configuração, ambiente isolado, inclui banco de dados
+
+### 🔧 Opção 2: Instalação Local
+#### Pré-requisitos
 - Node.js (v18+)
 - MongoDB (local ou Atlas)
-- Conta Twilio (para SMS)
+- Conta Twilio (para SMS - opcional)
 
 ### 1. Configuração Inicial
 ```bash
@@ -215,6 +229,17 @@ npm run create-admin
 
 ### Documentação Completa
 Veja `ADMIN_GUIDE.md` para instruções detalhadas de administração.
+
+## 🐳 Ambiente Virtual
+
+Para testar o projeto em um ambiente isolado, consulte:
+- **`VIRTUAL_ENVIRONMENT.md`** - Guia completo de ambientes virtuais
+- **`QUICK_START.md`** - Início rápido para testes
+
+### Opções Disponíveis:
+- 🐳 **Docker** - Recomendado (mais fácil)
+- 🔧 **Local** - Node.js + MongoDB
+- ☁️ **Cloud** - Codespaces/Gitpod
 
 ## 📝 Próximos Passos
 
