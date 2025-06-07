@@ -33,12 +33,32 @@ npm run dev
 
 ## 👤 Testando o Sistema
 
-### **Criar Usuário Normal**
+### **Setup Completo de Demonstração**
+```bash
+# Criar admin + usuários de teste automaticamente
+./setup-demo.sh
+```
+
+### **Criar Usuário Normal (Manual)**
 1. Acesse http://localhost:3000
 2. Clique em "Registrar"
 3. Preencha os dados
 4. Use qualquer número (SMS será simulado)
 5. Código de verificação: `123456`
+
+### **Usuários de Teste Prontos**
+```bash
+# Criar 5 usuários de teste
+cd server
+npm run create-test-users
+```
+
+**Credenciais de teste:**
+- 📧 joao@teste.com / 🔑 123456789
+- 📧 maria@teste.com / 🔑 123456789
+- 📧 pedro@teste.com / 🔑 123456789
+- 📧 ana@teste.com / 🔑 123456789
+- 📧 carlos@teste.com / 🔑 123456789
 
 ### **Criar Usuário Admin**
 ```bash

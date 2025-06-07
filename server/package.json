@@ -11,7 +11,8 @@
     "test:watch": "jest --watch",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
-    "create-admin": "node scripts/createAdmin.js"
+    "create-admin": "node scripts/createAdmin.js",
+    "create-test-users": "node scripts/createTestUsers.js"
   },
   "dependencies": {
     "express": "^4.18.2",
