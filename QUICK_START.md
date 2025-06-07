@@ -158,6 +158,18 @@ grep "LOGIN_FAILED" server/logs/security.log
 
 ### **Problemas Comuns**
 
+#### **Erro Tailwind CSS (border-border)**
+```bash
+# Se aparecer erro: "The `border-border` class does not exist"
+./fix-tailwind.sh
+
+# Ou manualmente:
+cd client
+rm -rf node_modules/.vite
+npm install
+npm run dev
+```
+
 #### **MongoDB não conecta**
 ```bash
 # Verificar se MongoDB está rodando

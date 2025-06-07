@@ -45,6 +45,17 @@ export default {
           border: '#2a3942',
           text: '#e9edef',
           'text-secondary': '#8696a0',
+        },
+        border: {
+          DEFAULT: '#e5e7eb',
+          light: '#f3f4f6',
+          dark: '#2a3942',
+        },
+        ring: {
+          DEFAULT: '#3b82f6',
+        },
+        'ring-offset': {
+          DEFAULT: '#ffffff',
         }
       },
       fontFamily: {
