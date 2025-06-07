@@ -1,9 +1,0 @@
-<resources>
-    <string name="app_name">Whatsclone</string>
-    <string name="title_activity_login">LoginActivity</string>
-    <string name="botao_cadastrar">Cadastrar</string>
-    <string name="_55">+55</string>
-    <string name="title_activity_validador">validadorActivity</string>
-    <string name="botao_validar">Validar</string>
-    <string name="numero_telefone">998986756</string>
-</resources>
