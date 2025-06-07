@@ -1,24 +1,36 @@
 const twilio = require('twilio');
 
-// Configurar cliente Twilio
-const client = twilio(
-  process.env.TWILIO_ACCOUNT_SID,
-  process.env.TWILIO_AUTH_TOKEN
-);
+// Configurar cliente Twilio apenas se as credenciais estiverem disponíveis
+let client = null;
+
+if (process.env.TWILIO_ACCOUNT_SID && process.env.TWILIO_AUTH_TOKEN) {
+  try {
+    client = twilio(
+      process.env.TWILIO_ACCOUNT_SID,
+      process.env.TWILIO_AUTH_TOKEN
+    );
+    console.log('✅ Cliente Twilio configurado');
+  } catch (error) {
+    console.error('❌ Erro ao configurar cliente Twilio:', error);
+  }
+} else {
+  console.warn('⚠️ Credenciais Twilio não configuradas - SMS será simulado');
+}
 
 // Enviar SMS
 const sendSMS = async (to, message) => {
   try {
-    // Em desenvolvimento, apenas simular envio
-    if (process.env.NODE_ENV === 'development') {
+    // Em desenvolvimento ou sem cliente Twilio, apenas simular envio
+    if (process.env.NODE_ENV === 'development' || !client) {
       console.log(`📱 SMS simulado para ${to}: ${message}`);
       return true;
     }
 
     // Validar configurações do Twilio
-    if (!process.env.TWILIO_ACCOUNT_SID || !process.env.TWILIO_AUTH_TOKEN || !process.env.TWILIO_PHONE_NUMBER) {
-      console.error('❌ Configurações do Twilio não encontradas');
-      return false;
+    if (!process.env.TWILIO_PHONE_NUMBER) {
+      console.error('❌ TWILIO_PHONE_NUMBER não configurado');
+      console.log(`📱 SMS simulado para ${to}: ${message}`);
+      return true;
     }
 
     // Formatar número de telefone
