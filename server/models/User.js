@@ -8,12 +8,25 @@ const userSchema = new mongoose.Schema({
     trim: true,
     maxlength: [50, 'Nome não pode ter mais de 50 caracteres']
   },
+  email: {
+    type: String,
+    required: [true, 'Email é obrigatório'],
+    unique: true,
+    trim: true,
+    lowercase: true,
+    match: [/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/, 'Email inválido']
+  },
   phone: {
     type: String,
     required: [true, 'Telefone é obrigatório'],
     unique: true,
     trim: true,
     match: [/^\+?[1-9]\d{1,14}$/, 'Formato de telefone inválido']
+  },
+  password: {
+    type: String,
+    required: [true, 'Senha é obrigatória'],
+    minlength: [6, 'Senha deve ter pelo menos 6 caracteres']
   },
   avatar: {
     type: String,
@@ -70,19 +83,30 @@ const userSchema = new mongoose.Schema({
 });
 
 // Índices para performance
+userSchema.index({ email: 1 });
 userSchema.index({ phone: 1 });
 userSchema.index({ isOnline: 1 });
 userSchema.index({ lastSeen: -1 });
 
-// Middleware para hash do token de verificação
+// Middleware para hash da senha
 userSchema.pre('save', async function(next) {
-  if (!this.isModified('verificationToken') || !this.verificationToken) {
-    return next();
+  // Hash da senha se foi modificada
+  if (this.isModified('password')) {
+    this.password = await bcrypt.hash(this.password, 12);
   }
 
-  this.verificationToken = await bcrypt.hash(this.verificationToken, 12);
+  // Hash do token de verificação se foi modificado
+  if (this.isModified('verificationToken') && this.verificationToken) {
+    this.verificationToken = await bcrypt.hash(this.verificationToken, 12);
+  }
+
   next();
 });
+
+// Método para verificar senha
+userSchema.methods.comparePassword = async function(candidatePassword) {
+  return await bcrypt.compare(candidatePassword, this.password);
+};
 
 // Método para verificar token
 userSchema.methods.verifyToken = async function(token) {

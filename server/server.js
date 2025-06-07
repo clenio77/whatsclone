@@ -75,18 +75,18 @@ app.use(compression());
 app.use(securityHeaders);
 app.use(securityLogging);
 
+// CORS (deve vir antes das proteções)
+app.use(cors({
+  origin: process.env.CORS_ORIGIN?.split(',') || ["http://localhost:3000", "http://localhost:5173"],
+  credentials: true
+}));
+
 // Rate limiting e proteções
 app.use('/api/', apiRateLimit);
 app.use(sanitizeInput);
 app.use(attackDetection);
 app.use(csrfProtection);
 app.use(checkTokenBlacklist);
-
-// CORS
-app.use(cors({
-  origin: process.env.CORS_ORIGIN?.split(',') || ["http://localhost:3000", "http://localhost:5173"],
-  credentials: true
-}));
 
 // Logging
 if (process.env.NODE_ENV === 'development') {

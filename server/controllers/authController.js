@@ -8,26 +8,43 @@ const { generateToken, generateRefreshToken } = require('../utils/jwt');
 // @access  Public
 const register = async (req, res) => {
   try {
-    const { name, phone } = req.body;
+    const { name, email, phone, password } = req.body;
 
-    // Verificar se usuário já existe
-    let user = await User.findOne({ phone });
-
-    if (user && user.isVerified) {
+    // Validar dados obrigatórios
+    if (!name || !email || !phone || !password) {
       return res.status(400).json({
         success: false,
-        error: 'Usuário já existe e está verificado'
+        error: 'Nome, email, telefone e senha são obrigatórios'
       });
     }
 
-    if (user && !user.isVerified) {
+    // Verificar se usuário já existe (por email ou telefone)
+    let existingUser = await User.findOne({
+      $or: [{ email }, { phone }]
+    });
+
+    if (existingUser && existingUser.isVerified) {
+      return res.status(400).json({
+        success: false,
+        error: 'Usuário já existe com este email ou telefone'
+      });
+    }
+
+    let user;
+    if (existingUser && !existingUser.isVerified) {
       // Atualizar dados do usuário não verificado
+      user = existingUser;
       user.name = name;
+      user.email = email;
+      user.phone = phone;
+      user.password = password;
     } else {
       // Criar novo usuário
       user = new User({
         name,
+        email,
         phone,
+        password,
         isVerified: false
       });
     }
@@ -40,12 +57,23 @@ const register = async (req, res) => {
       data: {
         id: user._id,
         name: user.name,
+        email: user.email,
         phone: user.phone,
         isVerified: user.isVerified
       }
     });
   } catch (error) {
     console.error('Erro no registro:', error);
+
+    // Tratar erros de validação do MongoDB
+    if (error.code === 11000) {
+      const field = Object.keys(error.keyPattern)[0];
+      return res.status(400).json({
+        success: false,
+        error: `${field === 'email' ? 'Email' : 'Telefone'} já está em uso`
+      });
+    }
+
     res.status(500).json({
       success: false,
       error: 'Erro interno do servidor'
@@ -176,19 +204,43 @@ const verifyPhone = async (req, res) => {
   }
 };
 
-// @desc    Login direto (para usuários já verificados)
+// @desc    Login com email e senha
 // @route   POST /api/auth/login
 // @access  Public
 const login = async (req, res) => {
   try {
-    const { phone } = req.body;
+    const { email, password, phone } = req.body;
 
-    const user = await User.findOne({ phone });
+    // Permitir login por email ou telefone
+    let query = {};
+    if (email) {
+      query.email = email;
+    } else if (phone) {
+      query.phone = phone;
+    } else {
+      return res.status(400).json({
+        success: false,
+        error: 'Email ou telefone é obrigatório'
+      });
+    }
+
+    const user = await User.findOne(query);
     if (!user || !user.isVerified) {
       return res.status(401).json({
         success: false,
-        error: 'Usuário não encontrado ou não verificado'
+        error: 'Credenciais inválidas ou usuário não verificado'
       });
+    }
+
+    // Verificar senha se fornecida
+    if (password) {
+      const isPasswordValid = await user.comparePassword(password);
+      if (!isPasswordValid) {
+        return res.status(401).json({
+          success: false,
+          error: 'Credenciais inválidas'
+        });
+      }
     }
 
     // Atualizar status online
@@ -207,10 +259,12 @@ const login = async (req, res) => {
         user: {
           id: user._id,
           name: user.name,
+          email: user.email,
           phone: user.phone,
           avatar: user.avatar,
           status: user.status,
-          isOnline: user.isOnline
+          isOnline: user.isOnline,
+          role: user.role
         },
         accessToken,
         refreshToken

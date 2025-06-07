@@ -156,10 +156,15 @@ const csrfProtection = (req, res, next) => {
     return next();
   }
 
-  // Verificar origem
+  // Em desenvolvimento, ser mais permissivo
+  if (process.env.NODE_ENV === 'development') {
+    return next();
+  }
+
+  // Verificar origem apenas em produção
   const origin = req.get('Origin') || req.get('Referer');
   const allowedOrigins = process.env.CORS_ORIGIN?.split(',') || ['http://localhost:3000'];
-  
+
   if (!origin || !allowedOrigins.some(allowed => origin.startsWith(allowed))) {
     securityLogger.logSecurityEvent('CSRF_ATTEMPT', {
       ip: req.ip,
