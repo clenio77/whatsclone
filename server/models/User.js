@@ -32,6 +32,27 @@ const userSchema = new mongoose.Schema({
     type: Date,
     default: Date.now
   },
+  role: {
+    type: String,
+    enum: ['user', 'admin'],
+    default: 'user'
+  },
+  isLocked: {
+    type: Boolean,
+    default: false
+  },
+  lockReason: {
+    type: String,
+    default: null
+  },
+  loginAttempts: {
+    type: Number,
+    default: 0
+  },
+  lockUntil: {
+    type: Date,
+    default: null
+  },
   isVerified: {
     type: Boolean,
     default: false

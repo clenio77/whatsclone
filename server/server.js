@@ -21,9 +21,24 @@ const userRoutes = require('./routes/users');
 const chatRoutes = require('./routes/chats');
 const messageRoutes = require('./routes/messages');
 const aiRoutes = require('./routes/ai');
+const securityRoutes = require('./routes/security');
 
 // Importar middlewares
 const errorHandler = require('./middleware/errorHandler');
+const {
+  apiRateLimit,
+  authRateLimit,
+  messageRateLimit,
+  aiRateLimit,
+  sanitizeInput,
+  validateInput,
+  csrfProtection,
+  attackDetection,
+  securityHeaders,
+  checkTokenBlacklist,
+  securityLogging
+} = require('./middleware/security');
+const securityLogger = require('./services/securityLogger');
 
 const app = express();
 const server = http.createServer(app);
@@ -41,18 +56,30 @@ const io = socketIo(server, {
 connectDB();
 
 // Middlewares de segurança
-app.use(helmet());
+app.use(helmet({
+  contentSecurityPolicy: {
+    directives: {
+      defaultSrc: ["'self'"],
+      scriptSrc: ["'self'", "'unsafe-inline'"],
+      styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
+      fontSrc: ["'self'", "https://fonts.gstatic.com"],
+      imgSrc: ["'self'", "data:", "https:"],
+      connectSrc: ["'self'", "ws:", "wss:"],
+      frameAncestors: ["'none'"]
+    }
+  },
+  crossOriginEmbedderPolicy: false
+}));
 app.use(compression());
+app.use(securityHeaders);
+app.use(securityLogging);
 
-// Rate limiting
-const limiter = rateLimit({
-  windowMs: parseInt(process.env.RATE_LIMIT_WINDOW_MS) || 15 * 60 * 1000, // 15 minutos
-  max: parseInt(process.env.RATE_LIMIT_MAX_REQUESTS) || 100, // limite de 100 requests por IP
-  message: {
-    error: 'Muitas tentativas. Tente novamente em alguns minutos.'
-  }
-});
-app.use('/api/', limiter);
+// Rate limiting e proteções
+app.use('/api/', apiRateLimit);
+app.use(sanitizeInput);
+app.use(attackDetection);
+app.use(csrfProtection);
+app.use(checkTokenBlacklist);
 
 // CORS
 app.use(cors({
@@ -65,16 +92,28 @@ if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
 
-// Body parsing
-app.use(express.json({ limit: '10mb' }));
+// Body parsing com validação
+app.use(express.json({
+  limit: '10mb',
+  verify: (req, res, buf) => {
+    try {
+      JSON.parse(buf);
+    } catch (e) {
+      res.status(400).json({ error: 'JSON inválido' });
+      throw new Error('JSON inválido');
+    }
+  }
+}));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
+app.use(validateInput);
 
-// Rotas da API
-app.use('/api/auth', authRoutes);
+// Rotas da API com rate limiting específico
+app.use('/api/auth', authRateLimit, authRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/chats', chatRoutes);
-app.use('/api/messages', messageRoutes);
-app.use('/api/ai', aiRoutes);
+app.use('/api/messages', messageRateLimit, messageRoutes);
+app.use('/api/ai', aiRateLimit, aiRoutes);
+app.use('/api/security', securityRoutes);
 
 // Rota de health check
 app.get('/api/health', (req, res) => {
