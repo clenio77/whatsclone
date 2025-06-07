@@ -1,24 +1,90 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { useParams } from 'react-router-dom'
-import { MessageCircle, Settings, Search, MoreVertical } from 'lucide-react'
+import { MessageCircle, Settings, Search, MoreVertical, Send, Plus, UserPlus, Bot } from 'lucide-react'
 import { useAuthStore } from '@/services/authStore'
 import { useSocket } from '@/services/socketService'
 import { Chat, Message, User } from '@shared/types'
-import { chatApi } from '@/services/api'
+import { chatApi, messageApi, userApi } from '@/services/api'
 import Avatar from '@/components/common/Avatar'
 import Button from '@/components/common/Button'
 import LoadingSpinner from '@/components/common/LoadingSpinner'
+import AIAssistant from '@/components/chat/AIAssistant'
 import { cn } from '@/utils/cn'
+import toast from 'react-hot-toast'
 
 const ChatPage = () => {
   const { chatId } = useParams()
   const { user, logout } = useAuthStore()
-  const { socket, connect, connected } = useSocket()
+  const { socket, connect, connected, sendMessage, joinChat, leaveChat, on, off } = useSocket()
 
   const [chats, setChats] = useState<Chat[]>([])
   const [selectedChat, setSelectedChat] = useState<Chat | null>(null)
   const [messages, setMessages] = useState<Message[]>([])
   const [isLoading, setIsLoading] = useState(true)
+  const [messageText, setMessageText] = useState('')
+  const [isTyping, setIsTyping] = useState(false)
+  const [typingUsers, setTypingUsers] = useState<string[]>([])
+  const [searchQuery, setSearchQuery] = useState('')
+  const [searchResults, setSearchResults] = useState<User[]>([])
+  const [showNewChatModal, setShowNewChatModal] = useState(false)
+  const [showAIAssistant, setShowAIAssistant] = useState(false)
+
+  const messagesEndRef = useRef<HTMLDivElement>(null)
+  const typingTimeoutRef = useRef<NodeJS.Timeout>()
+
+  // Scroll para última mensagem
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
+  }
+
+  // Carregar mensagens de um chat
+  const loadMessages = async (chatId: string) => {
+    try {
+      const response = await messageApi.getMessages(chatId)
+      if (response.success) {
+        setMessages(response.data)
+        setTimeout(scrollToBottom, 100)
+      }
+    } catch (error) {
+      console.error('Erro ao carregar mensagens:', error)
+      toast.error('Erro ao carregar mensagens')
+    }
+  }
+
+  // Buscar usuários
+  const searchUsers = async (query: string) => {
+    if (query.length < 2) {
+      setSearchResults([])
+      return
+    }
+
+    try {
+      const response = await userApi.searchUsers(query)
+      if (response.success) {
+        setSearchResults(response.data)
+      }
+    } catch (error) {
+      console.error('Erro ao buscar usuários:', error)
+    }
+  }
+
+  // Criar novo chat
+  const createNewChat = async (participantId: string) => {
+    try {
+      const response = await chatApi.createChat([participantId])
+      if (response.success) {
+        setChats(prev => [response.data, ...prev])
+        setSelectedChat(response.data)
+        setShowNewChatModal(false)
+        setSearchQuery('')
+        setSearchResults([])
+        toast.success('Chat criado com sucesso!')
+      }
+    } catch (error) {
+      console.error('Erro ao criar chat:', error)
+      toast.error('Erro ao criar chat')
+    }
+  }
 
   // Conectar socket quando o usuário estiver autenticado
   useEffect(() => {
@@ -52,6 +118,58 @@ const ChatPage = () => {
     }
   }, [user])
 
+  // Configurar event listeners do Socket.io
+  useEffect(() => {
+    if (!connected) return
+
+    // Receber nova mensagem
+    const handleNewMessage = (message: Message) => {
+      setMessages(prev => [...prev, message])
+
+      // Atualizar último mensagem no chat
+      setChats(prev => prev.map(chat =>
+        chat.id === message.chat
+          ? { ...chat, lastMessage: message, lastActivity: message.createdAt }
+          : chat
+      ))
+
+      setTimeout(scrollToBottom, 100)
+    }
+
+    // Usuário digitando
+    const handleUserTyping = (data: { userId: string; userName: string; isTyping: boolean }) => {
+      if (data.userId === user?.id) return
+
+      setTypingUsers(prev => {
+        if (data.isTyping) {
+          return prev.includes(data.userName) ? prev : [...prev, data.userName]
+        } else {
+          return prev.filter(name => name !== data.userName)
+        }
+      })
+    }
+
+    // Status online/offline
+    const handleUserOnline = (data: { userId: string; isOnline: boolean }) => {
+      setChats(prev => prev.map(chat => ({
+        ...chat,
+        participants: chat.participants.map(p =>
+          p.id === data.userId ? { ...p, isOnline: data.isOnline } : p
+        )
+      })))
+    }
+
+    on('newMessage', handleNewMessage)
+    on('userTyping', handleUserTyping)
+    on('userOnline', handleUserOnline)
+
+    return () => {
+      off('newMessage', handleNewMessage)
+      off('userTyping', handleUserTyping)
+      off('userOnline', handleUserOnline)
+    }
+  }, [connected, user?.id, on, off])
+
   // Selecionar chat se chatId estiver na URL
   useEffect(() => {
     if (chatId && chats.length > 0) {
@@ -61,6 +179,71 @@ const ChatPage = () => {
       }
     }
   }, [chatId, chats])
+
+  // Carregar mensagens quando selecionar chat
+  useEffect(() => {
+    if (selectedChat && connected) {
+      loadMessages(selectedChat.id)
+      joinChat(selectedChat.id)
+
+      return () => {
+        leaveChat(selectedChat.id)
+      }
+    }
+  }, [selectedChat, connected, joinChat, leaveChat])
+
+  // Enviar mensagem
+  const handleSendMessage = () => {
+    if (!messageText.trim() || !selectedChat || !connected) return
+
+    sendMessage({
+      chatId: selectedChat.id,
+      content: messageText.trim()
+    })
+
+    setMessageText('')
+
+    // Parar indicador de digitação
+    if (typingTimeoutRef.current) {
+      clearTimeout(typingTimeoutRef.current)
+    }
+    socket?.stopTyping(selectedChat.id)
+    setIsTyping(false)
+  }
+
+  // Gerenciar digitação
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value
+    setMessageText(value)
+
+    if (!selectedChat || !connected) return
+
+    // Iniciar indicador de digitação
+    if (!isTyping && value.trim()) {
+      setIsTyping(true)
+      socket?.startTyping(selectedChat.id)
+    }
+
+    // Parar indicador após 2 segundos sem digitar
+    if (typingTimeoutRef.current) {
+      clearTimeout(typingTimeoutRef.current)
+    }
+
+    typingTimeoutRef.current = setTimeout(() => {
+      if (isTyping) {
+        setIsTyping(false)
+        socket?.stopTyping(selectedChat.id)
+      }
+    }, 2000)
+  }
+
+  // Enviar com Enter
+  const handleKeyPress = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault()
+      handleSendMessage()
+    }
+  }
 
   const handleLogout = () => {
     socket?.disconnect()
@@ -99,8 +282,21 @@ const ChatPage = () => {
               </div>
             </div>
             <div className="flex items-center space-x-2">
-              <Button variant="ghost" size="sm">
-                <Search className="w-4 h-4" />
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => setShowNewChatModal(true)}
+                title="Nova conversa"
+              >
+                <UserPlus className="w-4 h-4" />
+              </Button>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => setShowAIAssistant(true)}
+                title="Assistente IA"
+              >
+                <Bot className="w-4 h-4" />
               </Button>
               <Button variant="ghost" size="sm" onClick={handleLogout}>
                 <Settings className="w-4 h-4" />
@@ -255,6 +451,26 @@ const ChatPage = () => {
                   </div>
                 ))
               )}
+
+              {/* Indicador de digitação */}
+              {typingUsers.length > 0 && (
+                <div className="flex justify-start">
+                  <div className="message-bubble message-received">
+                    <div className="flex items-center space-x-2">
+                      <div className="typing-indicator">
+                        <div className="typing-dot"></div>
+                        <div className="typing-dot"></div>
+                        <div className="typing-dot"></div>
+                      </div>
+                      <span className="text-xs text-gray-500">
+                        {typingUsers.join(', ')} {typingUsers.length === 1 ? 'está' : 'estão'} digitando...
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              <div ref={messagesEndRef} />
             </div>
 
             {/* Message Input */}
@@ -263,10 +479,18 @@ const ChatPage = () => {
                 <input
                   type="text"
                   placeholder="Digite uma mensagem..."
+                  value={messageText}
+                  onChange={handleInputChange}
+                  onKeyPress={handleKeyPress}
                   className="flex-1 px-4 py-2 bg-gray-100 dark:bg-dark-bg rounded-full focus:outline-none focus:ring-2 focus:ring-whatsapp-light"
+                  disabled={!connected}
                 />
-                <Button size="sm">
-                  Enviar
+                <Button
+                  size="sm"
+                  onClick={handleSendMessage}
+                  disabled={!messageText.trim() || !connected}
+                >
+                  <Send className="w-4 h-4" />
                 </Button>
               </div>
             </div>
@@ -289,6 +513,81 @@ const ChatPage = () => {
           </div>
         )}
       </div>
+
+      {/* Modal Nova Conversa */}
+      {showNewChatModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white dark:bg-dark-surface rounded-lg p-6 w-full max-w-md mx-4">
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-dark-text">
+                Nova Conversa
+              </h3>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => {
+                  setShowNewChatModal(false)
+                  setSearchQuery('')
+                  setSearchResults([])
+                }}
+              >
+                ✕
+              </Button>
+            </div>
+
+            <div className="space-y-4">
+              <input
+                type="text"
+                placeholder="Buscar usuários..."
+                value={searchQuery}
+                onChange={(e) => {
+                  setSearchQuery(e.target.value)
+                  searchUsers(e.target.value)
+                }}
+                className="w-full px-4 py-2 border border-gray-300 dark:border-dark-border rounded-lg focus:outline-none focus:ring-2 focus:ring-whatsapp-light bg-white dark:bg-dark-bg text-gray-900 dark:text-dark-text"
+                autoFocus
+              />
+
+              <div className="max-h-60 overflow-y-auto space-y-2">
+                {searchResults.length === 0 && searchQuery.length >= 2 ? (
+                  <p className="text-center text-gray-500 dark:text-dark-text-secondary py-4">
+                    Nenhum usuário encontrado
+                  </p>
+                ) : (
+                  searchResults.map((searchUser) => (
+                    <div
+                      key={searchUser.id}
+                      className="flex items-center space-x-3 p-3 hover:bg-gray-50 dark:hover:bg-dark-border rounded-lg cursor-pointer"
+                      onClick={() => createNewChat(searchUser.id)}
+                    >
+                      <Avatar
+                        src={searchUser.avatar}
+                        name={searchUser.name}
+                        size="md"
+                        online={searchUser.isOnline}
+                      />
+                      <div className="flex-1">
+                        <h4 className="font-medium text-gray-900 dark:text-dark-text">
+                          {searchUser.name}
+                        </h4>
+                        <p className="text-sm text-gray-500 dark:text-dark-text-secondary">
+                          {searchUser.phone}
+                        </p>
+                      </div>
+                    </div>
+                  ))
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Assistente IA */}
+      <AIAssistant
+        isOpen={showAIAssistant}
+        onClose={() => setShowAIAssistant(false)}
+      />
     </div>
   )
 }

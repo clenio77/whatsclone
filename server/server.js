@@ -20,6 +20,7 @@ const authRoutes = require('./routes/auth');
 const userRoutes = require('./routes/users');
 const chatRoutes = require('./routes/chats');
 const messageRoutes = require('./routes/messages');
+const aiRoutes = require('./routes/ai');
 
 // Importar middlewares
 const errorHandler = require('./middleware/errorHandler');
@@ -73,6 +74,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/chats', chatRoutes);
 app.use('/api/messages', messageRoutes);
+app.use('/api/ai', aiRoutes);
 
 // Rota de health check
 app.get('/api/health', (req, res) => {
